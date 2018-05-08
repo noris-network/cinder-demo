@@ -1,6 +1,9 @@
+import os
+import subprocess
+import datetime as dt
+
 from tiny import bottle
 from tiny.bottle import request, HTTPResponse
-import datetime as dt
 
 from .models import User
 from .config import app 
@@ -22,8 +25,24 @@ template = """
 </body>
 </html>"""
 
+
+curl = """
+<br>
+<code>
+curl --header "Content-Type: application/json" \
+ --request POST \
+ --data '{"name":"${USER}","password":"s3kr3t", "email": "${MAIL}"}' \
+ http://Public.Ip.ofThis.Host:8080/usr/
+"""
+
 @app.route('/', name='page_finder')
 def list(db):
+    users = [str(u) for u in User.select()]
+    print(users)
+    if not users:
+        users = "Use the following command to create a user:<p>"
+        return users + curl
+
     users='<br>'.join(str(u) for u in User.select())
     return template.format(users)
 	

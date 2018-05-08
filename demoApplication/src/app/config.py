@@ -4,10 +4,10 @@ from tiny.peewee import SqliteDatabase
 from tiny.bottle_peewee import PeeweePlugin
 from tiny import bottle
 
-
+print(os.getenv("DATABASE_DIR"))
+os.system("ls /app/vol")
 db = SqliteDatabase(os.path.join(os.getenv("DATABASE_DIR", os.getcwd()), 'app.sqlite3'))
-import pdb; pdb.set_trace()
-print(db)
+
 CONFIG = {'db': db}
 
 
