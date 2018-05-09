@@ -10,8 +10,7 @@ Description of the test:
 ------------------------
 
 
-1. The application
-~~~~~~~~~~~~~~~~~~
+### The application
 
 This repository contains a simple web application written in Python.
 The application has two end points, one that lists users from a database, and one
@@ -38,14 +37,14 @@ You can view the users by browsing to the IP address of the machine where the ap
 firefox http://<ip_of_host>:8080
 ```
 
-2. Building a docker image
+### Building a docker image
 
 ```
 cd demoApplication/src
 sudo docker build -t oz123/cinder-test .
 ```
 
-3. Launch the application with docker
+#### Launch the application with docker
 
 ```
 sudo docker run --rm -p 8080:8080 --name test-cinder5 oz123/cinder-test
