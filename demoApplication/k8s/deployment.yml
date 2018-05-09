@@ -12,28 +12,17 @@ spec:
       containers:
       - name: test-cinder
         image: oz123/cinder-test
-        #env:
-        #  - name: PYPI_PASSWD_FILE
-        #    value: "/srv/secret/pypisecret.txt"
-        #  - name: PYPI_PORT
-        #    value: "9000"
-        #  - name: GUNICORN_WORKERS
-        #    value: "20"
+        env:
+          - name: DATABASE_DIR
+            value: "/app/vol"
         imagePullPolicy: Always
-        #volumeMounts:
-        #- name: secrets-file
-        #  mountPath: "/srv/secret"
-        #- name: pypi-packages
-        #  mountPath: /srv/pypi/
+        volumeMounts:
+        - name: database
+          mountPath: "/app/vol"
       nodeSelector:
         failure-domain.beta.kubernetes.io/region: de-nbg6-1
 
-      #volumes:
-      #- name: secrets-file
-      #  secret:
-      #    secretName: pypisecret
-      #- name: pypi-packages
-      #  awsElasticBlockStore:
-      #   volumeID: "vol-08664cf5c0f7745d7"
-      #    fsType: ext4
-
+      volumes:
+      - name: database
+        persistentVolumeClaim:
+          claimName: test-cinder-volume
