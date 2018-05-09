@@ -10,7 +10,7 @@ Description of the test:
 ------------------------
 
 
-### The application
+## The application
 
 This repository contains a simple web application written in Python.
 The application has two end points, one that lists users from a database, and one
@@ -108,3 +108,16 @@ Run the application with:
 ```
 sudo docker run --rm -p 8080:8080 -e DATABASE_DIR=/app/vol -v $(pwd)/vol:/app/vol -it oz123/cinder-test
 ```
+
+K8S cluster
+-----------
+
+Make sure you define two storage classes for the cluster in noris.cloud.
+You should apply the files in `k8s/storageClasses`:
+
+```
+kubectl apply -f k8s/storageClasses/default-storageClass-de-nbg6-1a.yml
+kubectl apply -f k8s/storageClasses/default-storageClass-de-nbg6-1b.yml
+```
+
+
