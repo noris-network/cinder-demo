@@ -1,4 +1,5 @@
 import os
+import socket
 import subprocess
 import datetime as dt
 
@@ -20,6 +21,8 @@ template = """
  </head>
 <body>
 <div>
+{}
+
 {}
 </div>
 </body>
@@ -43,8 +46,9 @@ def list(db):
         users = "Use the following command to create a user:<p>"
         return users + curl
 
-    users='<br>'.join(str(u) for u in User.select())
-    return template.format(users)
+    users = '<br>'.join(str(u) for u in User.select())
+    hostname = '<br> hostname: %s' % socket.gethostname()
+    return template.format(users, hostname)
 	
 @app.post('/usr/', name='insert_user')
 def usr(db):
