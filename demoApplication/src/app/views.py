@@ -23,7 +23,9 @@ template = """
 <div>
 {}
 
-{}
+My pod name {}
+<br>
+My node name {}
 </div>
 </body>
 </html>"""
@@ -48,7 +50,8 @@ def list(db):
 
     users = '<br>'.join(str(u) for u in User.select())
     hostname = '<br> hostname: %s' % socket.gethostname()
-    return template.format(users, hostname)
+    nodename = os.getenv('MY_NODE_NAME')
+    return template.format(users, hostname, nodename)
 	
 @app.post('/usr/', name='insert_user')
 def usr(db):

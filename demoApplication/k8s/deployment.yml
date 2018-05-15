@@ -1,8 +1,17 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-cinder
+# the defualt strategy for deployments is
+#StrategyType:           RollingUpdate
+#MinReadySeconds:        0
+#RollingUpdateStrategy:  1 max unavailable, 1 max surge
 spec:
+  selector:
+    matchLabels:
+      app: test-cinder
+  strategy:
+    type: Recreate
   replicas: 1
   template:
     metadata:
@@ -15,6 +24,10 @@ spec:
         env:
           - name: DATABASE_DIR
             value: "/app/vol"
+          - name: MY_NODE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
         imagePullPolicy: Always
         volumeMounts:
         - name: database
