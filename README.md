@@ -120,4 +120,18 @@ kubectl apply -f k8s/storageClasses/default-storageClass-de-nbg6-1a.yml
 kubectl apply -f k8s/storageClasses/default-storageClass-de-nbg6-1b.yml
 ```
 
+Building the documentation
+--------------------------
+
+You need to have python-sphinx installed. On Debian bases systems do:
+```
+apt-get install python3-sphinx
+```
+
+To build the docs:
+
+```
+cd docs
+make html # to build html docs
+```
 

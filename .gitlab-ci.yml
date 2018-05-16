@@ -1,0 +1,6 @@
+image: dldl/sphinx-server
+
+job:
+  script:
+    - uname -a
+
