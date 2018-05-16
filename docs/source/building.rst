@@ -17,27 +17,27 @@ ansible:
 
 .. code:: shell
 
-   $ git clone -b 'v2.4.0' --single-branch --depth 1 git@github.com:kubernetes-incubator/kubespray.git
- 
-   $ cp cinder-test-cluster.ini kubespray/inventory/
- 
+  $ git clone -b 'v2.4.0' --single-branch --depth 1 git@github.com:kubernetes-incubator/kubespray.git
+
+  $ cp cinder-test-cluster.ini kubespray/inventory/
+
 Edit the following entries in ``kubespray/inventory/inventory/group_vars/all.yml``:
 
 .. code:: yaml
 
    bootstrap_os: ubuntu
    cloud_provider: openstack
- 
+
 in ``kubespray/inventory/group_vars/k8s-cluster.yml``:
 
 .. code:: yaml
 
    kube_version: v1.10.2
- 
+
 Finally, run ansible:
 
 .. code:: shell
-   
+
    $ cd kubespray
    $ ansible-playbook -i  inventory/mycluster.ini cluster.yml \
      --ssh-extra-args="-o StrictHostKeyChecking=no" -u ubuntu \
@@ -45,3 +45,6 @@ Finally, run ansible:
 
 
 For a list of known problems see the ``README`` in `kolt`_.
+
+.. _kolt: https://gitlab.noris.net/PI/kolt
+.. _ansible: https://www.ansible.com/
