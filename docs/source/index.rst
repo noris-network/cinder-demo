@@ -3,13 +3,30 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Cinder Test's documentation!
-=======================================
+Cinder Test
+===========
 
-Contents:
+About this document:
+--------------------
+
+These docs describe how we evaluted Cinder as a dynamic storage backend
+for Kubernetes on OpenStack.
+
+Test setup
+~~~~~~~~~~
+
+A Kubernetes cluster build with `Kubespray_` on top of Ubuntu 16.04 Virtual
+Machines in noris.cloud.
+
+
+.. _Kubespray: https://github.com/kubernetes-incubator/kubespray
 
 .. toctree::
    :maxdepth: 2
+
+   building
+   application
+   test
 
 
 
@@ -17,6 +34,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
-
