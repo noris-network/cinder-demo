@@ -12,6 +12,7 @@ pages:
 pages:
   script:
   - make -C docs html
+  - mv docs/build/html/ public/
   artifacts:
     paths:
     - public
