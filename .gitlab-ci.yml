@@ -3,4 +3,18 @@ image: dldl/sphinx-server
 job:
   script:
     - uname -a
-    - make -C docs html
+
+pages:
+  script:
+
+
+
+pages:
+  script:
+  - make -C docs html
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
