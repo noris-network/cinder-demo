@@ -3,7 +3,7 @@ Building the test environment
 
 Install kolt_ and ansible_ on your host.
 
-Follow the instruction in the `kolt`_ repository on how to setup a Kubernetes
+Follow the instructions in the `kolt`_ repository on how to setup a Kubernetes
 cluster. You need at least 2 worker nodes in each availability zone.
 
 Use the file ``k8s/cinder-test-cluster.yml`` as an example:
