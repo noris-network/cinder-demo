@@ -2,12 +2,7 @@ image: dldl/sphinx-server
 
 job:
   script:
-    - uname -a
-
-pages:
-  script:
-
-
+    - uname -r
 
 pages:
   script:
