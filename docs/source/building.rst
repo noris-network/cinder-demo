@@ -1,6 +1,9 @@
 Building the test environment
 =============================
 
+Creating a kubernetes cluster on OpenStack
+------------------------------------------
+
 Install kolt_ and ansible_ on your host.
 
 Follow the instructions in the `kolt`_ repository on how to setup a Kubernetes
@@ -48,3 +51,28 @@ For a list of known problems see the ``README`` in `kolt`_.
 
 .. _kolt: https://gitlab.noris.net/PI/kolt
 .. _ansible: https://www.ansible.com/
+
+
+Preparing your kubernetes cluster
+---------------------------------
+
+After you kubernetes cluster is bootstrap you should be able to
+execute ``kubectl`` on any of your masters.
+
+You should see at least two nodes in each availability zone by running:
+
+
+.. code:: shell
+
+   $ ubuntu@master-1-nude:~$ kubectl get nodes --show-labels
+
+You should now create a StorageClass_ for each availability zone.
+On the master machine still:
+
+.. code:: shell
+
+   $ git clone https://gitlab.noris.net/PI/cinder-test
+   $ kubectl apply -f cinder-test/k8s/storageClasses/default-storageClass-de-nbg6-1a.yml
+   $ kubectl apply -f cinder-test/k8s/storageClasses/default-storageClass-de-nbg6-1b.yml
+
+.. _StorageClass: https://kubernetes.io/docs/concepts/storage/storage-classes/

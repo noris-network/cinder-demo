@@ -24,7 +24,7 @@ Machines in noris.cloud.
 .. toctree::
    :maxdepth: 2
 
-   building
+   Building the test cluster <building>
    application
    test
 
