@@ -29,7 +29,7 @@ Table of Contents
    Building the test cluster <building>
    The test application <application>
    Deploying the application to Kubernetes <deployment>
-   Testinga machine failure <test>
+   Testing a machine failure <test>
 
 Indices and tables
 ==================
