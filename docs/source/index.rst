@@ -16,7 +16,7 @@ Test setup
 ~~~~~~~~~~
 
 A Kubernetes cluster build with `Kubespray_` on top of Ubuntu 16.04 Virtual
-Machines in noris.cloud.
+Machines in ``noris.cloud``.
 
 
 .. _Kubespray: https://github.com/kubernetes-incubator/kubespray
