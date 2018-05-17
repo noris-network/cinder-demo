@@ -1,13 +1,10 @@
 import os
 import socket
-import subprocess
-import datetime as dt
 
-from tiny import bottle
 from tiny.bottle import request, HTTPResponse
 
 from .models import User
-from .config import app 
+from .config import app
 
 
 template = """
@@ -40,6 +37,7 @@ curl --header "Content-Type: application/json" \
  http://Public.Ip.ofThis.Host:8080/usr/
 """
 
+
 @app.route('/', name='page_finder')
 def list(db):
     users = [str(u) for u in User.select()]
@@ -49,10 +47,11 @@ def list(db):
         return users + curl
 
     users = '<br>'.join(str(u) for u in User.select())
-    hostname = '<br> hostname: %s' % socket.gethostname()
+    hostname = '%s' % socket.gethostname()
     nodename = os.getenv('MY_NODE_NAME')
     return template.format(users, hostname, nodename)
-	
+
+
 @app.post('/usr/', name='insert_user')
 def usr(db):
     try:
