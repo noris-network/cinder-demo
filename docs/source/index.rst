@@ -15,7 +15,7 @@ for Kubernetes on OpenStack.
 The Test setup
 ~~~~~~~~~~~~~~
 
-A Kubernetes cluster build with `Kubespray_` on top of Ubuntu 16.04 Virtual
+A Kubernetes cluster build with Kubespray_ on top of Ubuntu 16.04 Virtual
 Machines in ``noris.cloud``.
 
 
