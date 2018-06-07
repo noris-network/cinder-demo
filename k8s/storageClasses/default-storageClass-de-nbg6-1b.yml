@@ -7,4 +7,4 @@ provisioner: kubernetes.io/cinder
 reclaimPolicy: Retain
 parameters:
   type: BSS-Performance-Storage
-  availability: de-nbg6-1
+  availability: de-nbg6-1b
