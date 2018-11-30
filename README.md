@@ -5,6 +5,14 @@ Evaluate Cinder as a storage backend for K8S.
 
 Tested on Ubuntu 16.04 + Kubespray v2.5.0 on top of OpenStack.
 
+## note
+
+This version of kubespray installs an outdated version of k8s, which
+still uses the internal cloud provider. If you use a newer version of
+kuberentes (1.12.X) or later you should use the [external cloud provider
+for open stack][1]
+
+[1]: https://github.com/kubernetes/cloud-provider-openstack 
 
 Description of the test:
 ------------------------
